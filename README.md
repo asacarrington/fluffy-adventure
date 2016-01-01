@@ -1,4 +1,4 @@
-# fluffy-adventure
+fluffy-adventure
 ======
 
 Story generator in node js
@@ -11,7 +11,6 @@ How to Build on Linux
 * mongo 3.0
 
 ## Building
-=====================
 
 Once you have downloaded the source, execute the following to build it:
 
@@ -20,7 +19,6 @@ Once you have downloaded the source, execute the following to build it:
     $ nodemon
 
 # Copyright and License Information
-=====================
 
 See the file LICENSE.
 
