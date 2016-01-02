@@ -20,7 +20,6 @@ var router = express.Router({
  * @param {object} res - The response object
  */
 router.use(function(req, res, next) {
-  auditService.log('loaded', 'hit');
   next();
 });
 
@@ -31,6 +30,7 @@ router.use(function(req, res, next) {
  */
 router.get('/', function(req, res, next) {
   storyService.getAll(function(data) {
+    auditService.log(data, 'retrieve all stories');
     res.render('list', {
       stories: data,
       title: 'sdsdadsa'
@@ -44,11 +44,13 @@ router.get('/', function(req, res, next) {
  * @param {object} res - The response object
  */
 router.post('/', function(req, res, next) {
-  storyService.upsert({
+  var data = {
     id: req.body.id,
     content: req.body.content,
     type: req.body.type
-  }, function() {
+  }
+  auditService.log(data, 'upsert');
+  storyService.upsert(data, function() {
     res.end();
   });
 });
@@ -59,6 +61,7 @@ router.post('/', function(req, res, next) {
  * @param {object} res - The response object
  */
 router.delete('/:id', function(req, res) {
+  auditService.log(req.params.id, 'delete');
   storyService.delete(req.params.id);
   res.end();
 });
@@ -70,6 +73,7 @@ router.delete('/:id', function(req, res) {
  */
 router.get('/:id', function(req, res) {
   storyService.getOne(req.params.id, function(data) {
+    auditService.log(data, 'retrieve one');
     res.json(data);
   })
 });

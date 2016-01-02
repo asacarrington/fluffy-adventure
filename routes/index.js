@@ -23,6 +23,7 @@ router.use(function(req, res, next) {
  */
 router.get('/', function(req, res, next) {
   storyService.generate(function(data) {
+    auditService.log(data, 'story generated');
     res.render('index', {
       stories: data,
       title: 'Story'

@@ -7,7 +7,7 @@ $(document).ready(function() {
       method: type,
       data: payload,
       error: function(xhr, status, error) {
-        ajaxSend('/log/', 'POST', error, null);
+        ajaxSend('/log', 'POST', error, null);
       },
       success: function(data, response, e) {
         responseData = data;
