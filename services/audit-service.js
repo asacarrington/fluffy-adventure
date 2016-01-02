@@ -14,7 +14,6 @@
        */
       log: function(objName, interactionName) {
         /**
-         * @namespace
          * @property {string}  userRef                - The current user (hardcoded untill auth introduced).
          * @property {string}  objRef                 - The object containing audit information stored as string.
          * @property {string}  interaction            - The name of the interaction type the audit object refers to.
