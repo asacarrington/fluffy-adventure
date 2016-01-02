@@ -19,11 +19,15 @@ $(document).ready(function() {
   }
 
   function showForm() {
-    $('#upsert-modal').show();
+    $(".story-manager-container").fadeOut("slow", function() {
+      $(".upsert-form-container").fadeIn("slow", function() {});
+    });
   }
 
   function hideForm() {
-    $('#upsert-modal').hide();
+    $(".upsert-form-container").fadeOut("slow", function() {
+      $(".story-manager-container").fadeIn("slow", function() {});
+    });
   }
 
   function populateForm() {
