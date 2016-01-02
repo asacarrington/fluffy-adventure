@@ -38,6 +38,7 @@ $(document).ready(function() {
   }
 
   $('.delete-segment').on('click', function(e) {
+    $(this).closest("tr").fadeOut();
     ajaxSend('/story/' + $(this).data("segment-id"), 'DELETE', null, null);
   });
 
