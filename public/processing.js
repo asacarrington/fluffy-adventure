@@ -2,8 +2,6 @@ $(document).ready(function() {
   var responseData = {},
     isEdit = false;
 
-  $('#upsert-modal').hide();
-
   function ajaxSend(ext, type, payload, callback) {
     $.ajax(ext, {
       method: type,
@@ -38,7 +36,8 @@ $(document).ready(function() {
   }
 
   $('.delete-segment').on('click', function(e) {
-    $(this).closest("tr").fadeOut();
+    e.preventDefault();
+    $(this).closest("tr").fadeOut("slow");
     ajaxSend('/story/' + $(this).data("segment-id"), 'DELETE', null, null);
   });
 
