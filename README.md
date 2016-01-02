@@ -8,7 +8,7 @@ How to Build on Linux
 
 ## Dependencies
 
-* mongo 3.0
+* mongo <= 3.0
 
 ## Building
 
