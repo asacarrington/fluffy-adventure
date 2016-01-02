@@ -1,8 +1,8 @@
 /**
-* @author Asa Carrington
-* provides routes for index features
-* @module router
-*/
+ * @author Asa Carrington
+ * provides routes for index features
+ * @module router
+ */
 
 var express = require('express');
 var storySchema = require('../schemas/story-schema').Story;
@@ -13,7 +13,7 @@ var router = express.Router({
   mergeParams: true
 });
 
-router.use(function (req, res, next) {
+router.use(function(req, res, next) {
   next();
 });
 /**
@@ -21,10 +21,13 @@ router.use(function (req, res, next) {
  * @param {object} req - The request object
  * @param {object} res - The response object
  */
- router.get('/', function(req, res, next) {
-    storyService.generate(function(data){
-          res.render('index', {stories: data, title: 'Story'});
+router.get('/', function(req, res, next) {
+  storyService.generate(function(data) {
+    res.render('index', {
+      stories: data,
+      title: 'Story'
     });
- });
+  });
+});
 /** export router*/
 module.exports = router;

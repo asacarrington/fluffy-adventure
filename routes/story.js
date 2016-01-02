@@ -1,8 +1,8 @@
 /**
-* @author Asa Carrington
-* provides routes for story features
-* @module router
-*/
+ * @author Asa Carrington
+ * provides routes for story features
+ * @module router
+ */
 
 var express = require('express');
 var mongoId = require('mongoose').Types.ObjectId;
@@ -19,7 +19,7 @@ var router = express.Router({
  * @param {object} req - The request object
  * @param {object} res - The response object
  */
-router.use(function (req, res, next) {
+router.use(function(req, res, next) {
   auditService.log('loaded', 'hit');
   next();
 });
@@ -30,8 +30,11 @@ router.use(function (req, res, next) {
  * @param {object} res - The response object
  */
 router.get('/', function(req, res, next) {
-  storyService.getAll(function(data){
-    res.render('list', {stories: data, title: 'sdsdadsa'});
+  storyService.getAll(function(data) {
+    res.render('list', {
+      stories: data,
+      title: 'sdsdadsa'
+    });
   });
 });
 
@@ -41,11 +44,13 @@ router.get('/', function(req, res, next) {
  * @param {object} res - The response object
  */
 router.post('/', function(req, res, next) {
-   storyService.upsert(
-     {id:req.body.id, content: req.body.content, type:req.body.type}, function(){
-       res.end();
-     }
-   );
+  storyService.upsert({
+    id: req.body.id,
+    content: req.body.content,
+    type: req.body.type
+  }, function() {
+    res.end();
+  });
 });
 
 /**
@@ -53,7 +58,7 @@ router.post('/', function(req, res, next) {
  * @param {object} req - The request object
  * @param {object} res - The response object
  */
-router.delete('/:id', function (req, res) {
+router.delete('/:id', function(req, res) {
   storyService.delete(req.params.id);
   res.end();
 });
@@ -63,9 +68,9 @@ router.delete('/:id', function (req, res) {
  * @param {object} req - The request object
  * @param {object} res - The response object
  */
-router.get('/:id', function (req, res) {
-  storyService.getOne(req.params.id, function(data){
-      res.json(data);
+router.get('/:id', function(req, res) {
+  storyService.getOne(req.params.id, function(data) {
+    res.json(data);
   })
 });
 /** export router*/

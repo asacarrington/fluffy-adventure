@@ -1,8 +1,8 @@
 /**
-* @author Asa Carrington
-* provides routes for log features
-* @module router
-*/
+ * @author Asa Carrington
+ * provides routes for log features
+ * @module router
+ */
 
 var express = require('express');
 var auditService = require('../services/audit-service');
@@ -10,7 +10,7 @@ var router = express.Router({
   mergeParams: true
 });
 
-router.use(function (req, res, next) {
+router.use(function(req, res, next) {
   next();
 });
 

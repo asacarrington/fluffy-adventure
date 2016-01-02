@@ -1,7 +1,7 @@
 /**
-* @author Asa Carrington
-* Server entry point.
-*/
+ * @author Asa Carrington
+ * Server entry point.
+ */
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -22,7 +22,9 @@ app.set('view engine', 'hbs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use('/static', express.static(__dirname + '/public'));
 
