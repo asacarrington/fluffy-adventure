@@ -53,6 +53,11 @@ body {
   margin-left: auto;
 }
 
+.upsert-modal{
+  position: absolute;
+  top:0;
+}
+
 /* Padding for spacing */
 .inner {
   padding: 30px;

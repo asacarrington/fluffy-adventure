@@ -1,6 +1,7 @@
 $(document).ready(function() {
   var responseData = {},
     isEdit = false;
+
   $('#upsert-modal').hide();
 
   function ajaxSend(ext, type, payload, callback) {
@@ -13,9 +14,6 @@ $(document).ready(function() {
       success: function(data, response, e) {
         responseData = data;
         callback()
-      },
-      complete: function() {
-        alert('hit complete');
       }
     })
   }
@@ -62,6 +60,6 @@ $(document).ready(function() {
   });
 
   $('.upsert-modal-close-btn').on('click', function() {
-    $('#upsert-story-modal').hide();
+    hideForm();
   });
 });
